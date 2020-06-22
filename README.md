@@ -11,6 +11,8 @@
 
 > cli demo
 
+![demo](./snapshots/demo.gif)
+
 ## Prerequisites
 
 - node >=8.10.0
