@@ -6,6 +6,7 @@ module.exports = {
   },
   rules: {
     'node/no-extraneous-require': 1,
-    'no-unused-vars': 1
+    'no-unused-vars': 1,
+    'no-process-exit': 1,
   },
 };

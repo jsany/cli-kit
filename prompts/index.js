@@ -15,8 +15,7 @@ exports.getAnswersCreate = async () => {
     return answers;
   } catch (error) {
     error&&message.error(`确认在当前目录创建异常：${error}`);
-    process.exitCode = 1;
-    throw new Error(error||'Ctrl + c')
+    process.exit(1);
   }
 }
 
@@ -38,8 +37,7 @@ exports.getAnswersTemplate = async () => {
     return answers;
   } catch (error) {
     error&&message.error(`选择模版异常：${error}`);
-    process.exitCode = 1;
-    throw new Error(error||'Ctrl + c')
+    process.exit(1);
   }
 }
 
@@ -78,7 +76,6 @@ exports.getAnswersProjectInfo = async (projectName) => {
     return answers
   } catch (error) {
     error&&message.error(`输入项目信息异常：${error}`);
-    process.exitCode = 1;
-    throw new Error(error||'Ctrl + c')
+    process.exit(1);
   }
 }

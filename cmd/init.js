@@ -15,8 +15,7 @@ module.exports = async function init(projectName) {
       const isCreate = await getAnswersCreate();
       if (!isCreate) {
         message.info('取消创建');
-        process.exitCode = 1;
-        return
+        process.exit(1);
       }
 
       projectName = rootName;
@@ -24,8 +23,7 @@ module.exports = async function init(projectName) {
       if (list.length) {
         // 当前目录非空，则不符合创建条件
         message.error(`当前目录${projectName}非空，请在空目录创建或 cli-kit init yourProject`);
-        process.exitCode = 1;
-        return
+        process.exit(1);
       }
     } else {
       // 检查输入的项目名字，在当前目录是否存在该项目，若存在，则提示项目已经存在，若不存在，则创建该目录
@@ -37,8 +35,7 @@ module.exports = async function init(projectName) {
         })
       ) {
         message.error(`项目${projectName}已经存在`);
-        process.exitCode = 1;
-        return
+        process.exit(1);
       } else {
         fs.mkdirSync(projectName);
       }
@@ -47,7 +44,6 @@ module.exports = async function init(projectName) {
     await selectTemplate(toPath);
   } catch (error) {
     message.error(error);
-    process.exitCode = 1;
-    return
+    process.exit(1);
   }
 };
