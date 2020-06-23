@@ -11,6 +11,8 @@
 
 > cli demo
 
+原理：<https://github.com/jsany/cli-theory>
+
 ![demo](./snapshots/demo.gif)
 
 ## Prerequisites
