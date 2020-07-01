@@ -1,8 +1,7 @@
-const chalk = require('chalk');
-const semver = require('semver');
+import chalk from 'chalk';
+import semver from 'semver';
 
-
-module.exports = function checkEnv(pkg) {
+export default function checkEnv(pkg: any) {
   const requiredVersion = pkg.engines.node
 
   if (!semver.satisfies(process.version, requiredVersion)) {
@@ -13,7 +12,6 @@ module.exports = function checkEnv(pkg) {
           `requires Node ${requiredVersion}.\nPlease upgrade your Node version.\n`,
       ),
     )
-    process.exitCode=1
-    return
+    process.exit(1)
   }
 }

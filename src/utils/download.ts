@@ -1,12 +1,12 @@
-const path = require('path');
-const fs = require('fs');
-const os = require('os');
-const ora = require('ora');
-const fse = require('fs-extra');
-const pkg = require('../package.json');
-const download = require('download-git-repo');
+import path from 'path';
+import fs from 'fs';
+import os from 'os';
+import ora from 'ora';
+import fse from 'fs-extra';
+import pkg from '@~/package.json';
+import download from 'download-git-repo';
 
-module.exports = function (repo, opts = { clone: false }) {
+export default function (repo: string, opts = { clone: false }): Promise<any> {
   return new Promise((resolve, reject) => {
     // 下载到临时目录
     const tmpDest = fs.mkdtempSync(path.join(os.tmpdir(), pkg.name));
@@ -17,7 +17,7 @@ module.exports = function (repo, opts = { clone: false }) {
       spinner.color = 'yellow';
       spinner.text = 'Loading rainbows';
     }, 1000); */
-    download(repo, tmpDest, opts, (err) => {
+    download(repo, tmpDest, opts, (err: any) => {
       if (err) {
         spinner.fail(`下载失败: ${repo}`);
         reject(err);

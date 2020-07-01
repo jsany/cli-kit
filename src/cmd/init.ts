@@ -1,11 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const enquirer = require('enquirer');
-const message = require('../lib/message');
-const selectTemplate = require('../lib/template');
-const { getAnswersCreate } = require('../prompts');
+import fs from 'fs';
+import path from 'path';
+import message from '@/utils/message';
+import selectTemplate from '@/utils/template';
+import { getAnswersCreate } from '@/prompts';
 
-module.exports = async function init(projectName) {
+export default async function init(projectName: string|undefined) {
   const list = fs.readdirSync(process.cwd());
   const rootName = path.basename(process.cwd()); // 当前目录名称
   let toPath = ''

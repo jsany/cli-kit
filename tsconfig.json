@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "commonjs",
+    "lib": ["ES2015"],
+    "outDir": "lib",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"], // src 目录别名
+      "@~/*": ["../*"], // 根目录别名
+    },
+    "plugins": [{ "transform": "typescript-transform-paths" }],
+    "pretty": true,
+    "esModuleInterop": true,
+    // "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "removeComments": true
+  },
+  "include": ["src/**/*", "typings.d.ts","package.json"],
+  "exclude": [
+    "node_modules",
+    "**/test/*",
+    "__test__",
+    "**/*.spec.ts",
+    "lib",
+    "es",
+    "dist",
+    "build"
+  ]
+}

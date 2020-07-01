@@ -25,6 +25,12 @@
 yarn install
 ```
 
+## Build
+
+```sh
+yarn build
+```
+
 ## Link
 
 ```sh

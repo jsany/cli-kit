@@ -1,13 +1,19 @@
-const cac = require('cac')
-const pkg = require('../package.json')
-const message = require('./message');
+import cac from 'cac';
+import pkg from '@~/package.json';
+import message from '@/utils/message';
+
+interface ICLIProps {
+  beforeParse: Function;
+  afterParse: Function;
+}
 
 /**
  * Bootstrap a CAC cli
  * @param {function} beforeParse
  * @param {function} afterParse
  */
-async function CLI({ beforeParse, afterParse }) {
+export async function CLI(lifecycle: ICLIProps) {
+  const {beforeParse,afterParse} = lifecycle
   const cli = cac(pkg.name)
   beforeParse && (await beforeParse(cli))
   cli.parse(process.argv)
@@ -20,16 +26,11 @@ async function CLI({ beforeParse, afterParse }) {
  * @returns {function(...[*]): (*|Promise|Promise<T | never>)}
  */
 
-function wrapCommand(fn) {
-  return (...args) => {
-    return fn(...args).catch(err => {
+export function wrapCommand(fn: Function) {
+  return (...args: any) => {
+    return fn(...args).catch((err: any) => {
       message.error(`[${fn.name}]: ${err}`)
       process.exit(1)
     })
   }
-}
-
-module.exports = {
-  CLI,
-  wrapCommand,
 }

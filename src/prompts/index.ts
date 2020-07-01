@@ -1,7 +1,7 @@
-const enquirer = require('enquirer');
-const message = require('../lib/message');
+import enquirer from 'enquirer';
+import message from '@/utils/message';
 
-exports.getAnswersCreate = async () => {
+export const getAnswersCreate = async (): Promise<any> => {
   try {
     const answers = await enquirer.prompt([
       {
@@ -19,7 +19,7 @@ exports.getAnswersCreate = async () => {
   }
 }
 
-exports.getAnswersTemplate = async () => {
+export const getAnswersTemplate = async (): Promise<any> => {
   try {
     const answers = await enquirer.prompt([
       {
@@ -41,7 +41,7 @@ exports.getAnswersTemplate = async () => {
   }
 }
 
-exports.getAnswersProjectInfo = async (projectName) => {
+export const getAnswersProjectInfo = async (projectName: string): Promise<any> => {
   try {
     const answers = await enquirer.prompt([
       {
