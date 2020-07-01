@@ -9,11 +9,17 @@
   </a>
 </p>
 
-> cli demo
+> The scaffold demo
 
 原理：<https://github.com/jsany/cli-theory>
 
 ![demo](./snapshots/demo.gif)
+
+## Features
+
+- [x] typescript
+- [x] eslint、prettier、commitlint
+- [x] remote template
 
 ## Prerequisites
 
@@ -41,6 +47,10 @@ yarn link
 
 ```sh
 cli-kit init
+```
+
+```sh
+cli-kit info
 ```
 
 ## Show your support

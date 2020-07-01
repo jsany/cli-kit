@@ -1,7 +1,7 @@
 {
   "name": "cli-kit",
   "version": "1.0.0",
-  "description": "cli demo",
+  "description": "The typescript scaffold demo",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "typings.d.ts",
@@ -20,8 +20,8 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,md,json}": ["prettier --write", "git add"],
-    "package.json": ["sort-package-json", "git add"]
+    "**/*.{js,ts,md,json}": ["prettier --write"],
+    "package.json": ["sort-package-json"]
   },
   "dependencies": {
     "cac": "^6.5.10",
