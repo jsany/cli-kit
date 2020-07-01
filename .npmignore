@@ -1,0 +1,19 @@
+# Basic
+*.log
+.temp
+any
+art
+docs
+.eslintrc.js
+yarn.lock
+TODOs.md
+.github
+.idea
+.DS_Store
+
+# CI related
+scripts
+
+# Test related
+test
+.babelrc

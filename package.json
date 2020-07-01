@@ -2,20 +2,26 @@
   "name": "cli-kit",
   "version": "1.0.0",
   "description": "cli demo",
+  "license": "MIT",
   "main": "lib/index.js",
   "typings": "typings.d.ts",
-  "files": [
-    "lib",
-    "bin",
-    "typings.d.ts"
-  ],
-  "license": "MIT",
   "bin": {
     "cli-kit": "bin/index.js"
   },
+  "files": ["lib", "bin", "typings.d.ts"],
   "scripts": {
     "build": "rimraf lib/* && ttsc",
     "watch": "ttsc -w"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,md,json}": ["prettier --write", "git add"],
+    "package.json": ["sort-package-json", "git add"]
   },
   "dependencies": {
     "cac": "^6.5.10",
@@ -34,6 +40,8 @@
     "update-notifier": "^4.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
     "@types/consolidate": "^0.14.0",
     "@types/fs-extra": "^9.0.1",
     "@types/metalsmith": "^2.3.0",
@@ -45,7 +53,11 @@
     "eslint": "^7.3.1",
     "eslint-config-alloy": "^3.7.3",
     "eslint-plugin-node": "^11.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "sort-package-json": "^1.44.0",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.5",
     "typescript-transform-paths": "^1.1.14"
