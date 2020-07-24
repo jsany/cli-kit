@@ -23,7 +23,7 @@
 
 ## Prerequisites
 
-- node >=8.10.0
+- node >=10
 
 ## Install
 
