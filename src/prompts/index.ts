@@ -1,81 +1,59 @@
 import enquirer from 'enquirer';
-import message from '@/utils/message';
+import { error } from '@/utils/message';
+import {
+  getCommonCreateQuestions,
+  checkDirQuestions,
+  templateQuestions,
+  templateRemoteQuestions,
+  templateLocalQuestions
+} from '@/questions';
 
 export const getAnswersCreate = async (): Promise<any> => {
   try {
-    const answers = await enquirer.prompt([
-      {
-        name: 'createInCurrtent',
-        message: '确认在当前目录下创建么？',
-        type: 'confirm',
-        initial: true,
-        required: true,
-      },
-    ]);
+    const answers = await enquirer.prompt(checkDirQuestions);
     return answers;
-  } catch (error) {
-    error&&message.error(`确认在当前目录创建异常：${error}`);
+  } catch (err) {
+    err && error(`确认在当前目录创建异常：${err}`);
     process.exit(1);
   }
-}
+};
 
 export const getAnswersTemplate = async (): Promise<any> => {
   try {
-    const answers = await enquirer.prompt([
-      {
-        name: 'selectTemplate',
-        message: '请选择模版',
-        type: 'select',
-        choices: [
-          { name: 'template-main', message: '主工程' },
-          { name: 'template-secondary', message: '子工程' },
-        ],
-        initial: 0,
-        required: true,
-      },
-    ]);
+    const answers = await enquirer.prompt(templateQuestions);
     return answers;
-  } catch (error) {
-    error&&message.error(`选择模版异常：${error}`);
+  } catch (err) {
+    err && error(`选择本地/远程模版异常：${err}`);
     process.exit(1);
   }
-}
+};
+
+export const getAnswersLocalTemplate = async (): Promise<any> => {
+  try {
+    const answers = await enquirer.prompt(templateLocalQuestions);
+    return answers;
+  } catch (err) {
+    err && error(`选择本地模版异常：${err}`);
+    process.exit(1);
+  }
+};
+
+export const getAnswersRemoteTemplate = async (): Promise<any> => {
+  try {
+    const answers = await enquirer.prompt(templateRemoteQuestions);
+    return answers;
+  } catch (err) {
+    err && error(`选择远程模版异常：${err}`);
+    process.exit(1);
+  }
+};
 
 export const getAnswersProjectInfo = async (projectName: string): Promise<any> => {
   try {
-    const answers = await enquirer.prompt([
-      {
-        name: 'isPrivate',
-        message: '私有项目？默认不是私有',
-        type: 'confirm',
-        initial: false,
-        required: true,
-      },
-      {
-        name: 'projectName',
-        message: '输入 package.json:name 名称，默认当前项目名',
-        type: 'input',
-        initial: projectName,
-        required: true,
-      },
-      {
-        name: 'projectVersion',
-        message: '输入项目版本，默认 1.0.0',
-        type: 'input',
-        initial: '1.0.0',
-        required: true,
-      },
-      {
-        name: 'projectDescription',
-        message: '输入项目介绍，默认空',
-        type: 'input',
-        initial: '',
-        required: false,
-      },
-    ]);
-    return answers
-  } catch (error) {
-    error&&message.error(`输入项目信息异常：${error}`);
+    const answers = await enquirer.prompt([...getCommonCreateQuestions(projectName)]);
+    return answers;
+  } catch (err) {
+    err && error(`输入项目信息异常：${err}`);
     process.exit(1);
   }
-}
+};

@@ -8,9 +8,10 @@
   "bin": {
     "cli-kit": "bin/index.js"
   },
-  "files": ["lib", "bin", "typings.d.ts"],
+  "files": ["lib", "bin", "typings.d.ts", ".clikitrc.json", "templates"],
   "scripts": {
     "build": "rimraf lib/* && ttsc",
+    "postinstall": "node scripts/postinstall.js",
     "watch": "ttsc -w"
   },
   "husky": {
@@ -60,7 +61,7 @@
     "sort-package-json": "^1.44.0",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.5",
-    "typescript-transform-paths": "^1.1.14"
+    "typescript-transform-paths": "^2.0.0"
   },
   "engines": {
     "node": ">=8.10.0"

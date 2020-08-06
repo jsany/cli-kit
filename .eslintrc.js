@@ -21,6 +21,7 @@ module.exports = {
   },
   rules: {
     // 自定义你的规则
-    'no-param-reassign': 1
+    'no-param-reassign': 1,
+    '@typescript-eslint/no-require-imports': 1
   }
 };

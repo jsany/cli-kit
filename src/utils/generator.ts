@@ -1,59 +1,58 @@
 import Metalsmith from 'metalsmith';
-import { handlebars } from 'consolidate'
-import path from 'path';
-import {getAnswersProjectInfo} from '@/prompts';
-import message from '@/utils/message';
+import { handlebars } from 'consolidate';
+import { success, error } from '@/utils/message';
 
-const {render} = handlebars
+const { render } = handlebars;
 
-
-export default async(target:string ,toPath: string)=>{
-  const MetalFilterProjectInfo: Metalsmith.Plugin = async (files,metal,done) => {
+export default async (target: string, toPath: string, answersInfo: any) => {
+  const MetalFilterProjectInfo: Metalsmith.Plugin = async (files, metal, done) => {
     try {
-      const projectName = path.basename(toPath)
-      const answersInfo = await getAnswersProjectInfo(projectName)
-      const data = metal.metadata()
-      Object.assign(data, answersInfo)
-      done(null,files,metal)
+      const data = metal.metadata();
+      Object.assign(data, answersInfo, { createYear: new Date().getFullYear() });
+      done(null, files, metal);
     } catch (err) {
-      done(err,files,metal)
+      done(err, files, metal);
     }
-  }
-  const MetalFilterRender: Metalsmith.Plugin = async (files,metal,done) => {
+  };
+  const MetalFilterRender: Metalsmith.Plugin = async (files, metal, done) => {
     try {
       const entries = Object.entries(files);
-      for (const [fileName,file] of entries) {
-        let content = file.contents.toString()
-        if(fileName.endsWith('package.json')){
-          // 目前仅仅 package.json 是 模版
+      for (const [fileName, file] of entries) {
+        let content = file.contents.toString();
+        if (fileName.endsWith('.hbs')) {
+          // 目前仅仅后缀为 .hbs 的是模版
 
           // 用数据渲染模板
-          content = await render(content, metal.metadata()); 
+          content = await render(content, metal.metadata());
           // 渲染好的结果替换即可
-          file.contents = Buffer.from(content)
+          file.contents = Buffer.from(content);
+          const fileNameNo = fileName.slice(0, -4);
+          files[fileNameNo] = file;
+          delete files[fileName];
         }
       }
-      done(null,files,metal)
+      // console.info(files)
+      done(null, files, metal);
     } catch (err) {
-      done(err,files,metal)
+      done(err, files, metal);
     }
-  }
-  await new Promise((resovle, reject)=>{
+  };
+  // console.info(target,toPath)
+  await new Promise((resovle, reject) => {
     Metalsmith(__dirname)
       .source(target)
       .destination(toPath)
       .use(MetalFilterProjectInfo)
       .use(MetalFilterRender)
-      .build(err=>{
+      .build((err) => {
         if (!err) {
           resovle();
-          message.success('模版渲染成功');
-          process.exit(0);
+          success('模版渲染成功');
         } else {
-          message.error(`模版渲染异常：${err}`);
+          error(`模版渲染异常：${err}`);
           reject(err);
           process.exit(1);
         }
-      })
-  })
-}
+      });
+  });
+};

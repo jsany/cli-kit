@@ -1,9 +1,9 @@
 import envinfo from 'envinfo';
-import message from '@/utils/message';
+import { info, error } from '@/utils/message';
 
-export default async function () {
+export default async (): Promise<any> => {
   try {
-    message.info('Environment Info:');
+    info('Environment Info:');
     const res = await envinfo.run(
       {
         System: ['OS', 'CPU'],
@@ -16,9 +16,9 @@ export default async function () {
         fullTree: true
       }
     );
-    console.log(res);
-  } catch (error) {
-    message.error(error);
+    console.info(res);
+  } catch (err) {
+    error(err);
     process.exit(1);
   }
-}
+};

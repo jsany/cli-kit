@@ -1,0 +1,35 @@
+{
+  "githubToken": "",
+  "localTemplates": [
+    {
+      "name": "template-a",
+      "message": "项目A(template-a)"
+    },
+    {
+      "name": "template-b",
+      "message": "项目B(template-b)"
+    }
+  ],
+  "remoteTemplates": [
+    {
+      "name": "github:jsany/template-main",
+      "message": "主工程(template-main)"
+    },
+    {
+      "name": "github:jsany/template-secondary",
+      "message": "子工程(template-secondary)"
+    },
+    {
+      "name": "github:jsany/template-lerna",
+      "message": "多包工程(template-lerna)",
+      "bootstrap": {
+        "npm": ["yarn"]
+      }
+    }
+  ],
+  "bootstrap": {
+    "npm": ["npm install"],
+    "git": ["git init"],
+    "open": ["code ."]
+  }
+}

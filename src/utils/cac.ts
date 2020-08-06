@@ -1,6 +1,6 @@
 import cac from 'cac';
-import pkg from '@~/package.json';
-import message from '@/utils/message';
+import pkg from '@@/package.json';
+import { error } from '@/utils/message';
 
 interface ICLIProps {
   beforeParse: Function;
@@ -13,11 +13,11 @@ interface ICLIProps {
  * @param {function} afterParse
  */
 export async function CLI(lifecycle: ICLIProps) {
-  const {beforeParse,afterParse} = lifecycle
-  const cli = cac(pkg.name)
-  beforeParse && (await beforeParse(cli))
-  cli.parse(process.argv)
-  afterParse && (await afterParse(cli))
+  const { beforeParse, afterParse } = lifecycle;
+  const cli = cac(Object.keys(pkg.bin)[0] || pkg.name);
+  beforeParse && (await beforeParse(cli));
+  cli.parse(process.argv);
+  afterParse && (await afterParse(cli));
 }
 
 /**
@@ -29,8 +29,8 @@ export async function CLI(lifecycle: ICLIProps) {
 export function wrapCommand(fn: Function) {
   return (...args: any) => {
     return fn(...args).catch((err: any) => {
-      message.error(`[${fn.name}]: ${err}`)
-      process.exit(1)
-    })
-  }
+      error(`[${fn.name}]: ${err}`);
+      process.exit(1);
+    });
+  };
 }
