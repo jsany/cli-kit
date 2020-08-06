@@ -1,17 +1,28 @@
 {
-  "name": "cli-kit",
+  "name": "@jsany/cli-kit",
   "version": "1.0.0",
-  "description": "The typescript scaffold demo",
+  "description": "The typescript scaffold demo for the future",
+  "keywords": ["log", "assets", "filesize", "gzip", "webpack", "plugin"],
+  "homepage": "https://github.com/jsany/cli-kit#readme",
+  "bugs": {
+    "url": "https://github.com/jsany/cli-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsany/cli-kit.git"
+  },
   "license": "MIT",
+  "author": "jiangzhiguo2010",
   "main": "lib/index.js",
   "typings": "typings.d.ts",
   "bin": {
     "cli-kit": "bin/index.js"
   },
-  "files": ["lib", "bin", "typings.d.ts", ".clikitrc.json", "templates"],
+  "files": ["lib", "bin", "scripts", "templates", ".clikitrc.json", "typings.d.ts"],
   "scripts": {
     "build": "rimraf lib/* && ttsc",
     "postinstall": "node scripts/postinstall.js",
+    "release": "standard-version",
     "watch": "ttsc -w"
   },
   "husky": {
@@ -59,11 +70,19 @@
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.44.0",
+    "standard-version": "^8.0.2",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.5",
     "typescript-transform-paths": "^2.0.0"
   },
   "engines": {
     "node": ">=10"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "issues": {
+    "url": "https://github.com/jsany/cli-kit/issues"
   }
 }

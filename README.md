@@ -1,11 +1,22 @@
 <h1 align="center">Welcome to cli-kit 👋</h1>
 <p>
-  <a href="https://www.npmjs.com/package/cli-kit" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/cli-kit.svg">
+  <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
+    <img alt="npm version" src="https://img.shields.io/npm/v/@jsany/cli-kit/latest?logo=npm&style=flat-square" />
   </a>
-  <img src="https://img.shields.io/badge/node-%3E%3D8.10.0-blue.svg" />
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
+    <img alt="npm miniziped size" src="https://img.shields.io/bundlephobia/minzip/@jsany/cli-kit/latest?logo=npm&style=flat-square" />
+  </a>
+  <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
+    <img alt="node version" src="https://img.shields.io/node/v/@jsany/cli-kit?color=blue&style=flat-square" />
+  </a>
+  <a href="https://github.com/jsany/cli-kit#readme" target="_blank">
+    <img alt="documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=flat-square" />
+  </a>
+  <a href="https://github.com/jsany/cli-kit/graphs/commit-activity" target="_blank">
+    <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" />
+  </a>
+  <a href="https://github.com/jsany/cli-kit/blob/main/LICENSE" target="_blank">
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" />
   </a>
 </p>
 

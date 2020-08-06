@@ -11,9 +11,6 @@ TODOs.md
 .idea
 .DS_Store
 
-# CI related
-scripts
-
 # Test related
 test
 .babelrc
