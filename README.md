@@ -25,7 +25,7 @@
 
 ## Prerequisites
 
-- node >=6
+- node >=10
 
 ## Config
 
