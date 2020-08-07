@@ -21,26 +21,26 @@ export default async (type: 'local' | 'remote', current: string): Promise<any> =
     // console.info(bootstrap)
     // 执行 npm 命令，例如 安装依赖
     for (const cmd of bootstrap.npm || []) {
-      const spinner = ora(`正在执行 ${cmd}`);
+      const spinner = ora(`executing ${cmd}`);
       spinner.start();
       await execWait(cmd);
-      spinner.succeed(`执行完成 ${cmd}`);
+      spinner.succeed(`executed ${cmd}`);
     }
 
     // 执行 git 命令，例如 初始化
     for (const cmd of bootstrap.git || []) {
-      const spinner = ora(`正在执行 ${cmd}`);
+      const spinner = ora(`executing ${cmd}`);
       spinner.start();
       await execWait(cmd);
-      spinner.succeed(`执行完成 ${cmd}`);
+      spinner.succeed(`executed ${cmd}`);
     }
 
     // 用编辑器(vscode)打开
     for (const cmd of bootstrap.open || []) {
-      const spinner = ora(`正在执行 ${cmd}`);
+      const spinner = ora(`executing ${cmd}`);
       spinner.start();
       await execWait(cmd);
-      spinner.succeed(`执行完成 ${cmd}`);
+      spinner.succeed(`executed ${cmd}`);
     }
   } catch (err) {
     error(err);

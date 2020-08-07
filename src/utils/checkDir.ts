@@ -15,7 +15,7 @@ export default async function checkDir(projectName: string | undefined) {
       // 未输入项目名字，询问是否在当前目录创建
       const isCreate = await getAnswersCreate();
       if (!isCreate.createInCurrtent) {
-        info('取消创建');
+        info('cancel create');
         process.exit(1);
       }
       projectName = rootName;
@@ -23,7 +23,9 @@ export default async function checkDir(projectName: string | undefined) {
       res.projectName = rootName;
       if (list.length) {
         // 当前目录非空，则不符合创建条件
-        error(`当前目录${projectName}非空，请在空目录创建或 cli-kit init yourProject`);
+        error(
+          `The current directory ${projectName} is not empty, Please create in an empty directory or Specify the project name (cli-kit init yourProject)`
+        );
         process.exit(1);
       }
     } else {
@@ -35,7 +37,7 @@ export default async function checkDir(projectName: string | undefined) {
           return name === projectName && isDir;
         })
       ) {
-        error(`项目${projectName}已经存在`);
+        error(`${projectName} already existed`);
         process.exit(1);
       } else {
         fs.mkdirSync(projectName);

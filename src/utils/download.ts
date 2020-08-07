@@ -9,7 +9,7 @@ export default function (repo: string, opts = { clone: false }): Promise<any> {
     // 下载到临时目录
     const tmpDest = fse.mkdtempSync(path.join(os.tmpdir(), repo.split('/').pop() || 'temp'));
 
-    const spinner = ora('正在下载模板...');
+    const spinner = ora('Downloading the template ...');
     spinner.start();
     /* setTimeout(() => {
       spinner.color = 'yellow';
@@ -17,11 +17,11 @@ export default function (repo: string, opts = { clone: false }): Promise<any> {
     }, 1000); */
     download(repo, tmpDest, opts, (err: any) => {
       if (err) {
-        spinner.fail(`下载失败: ${repo}`);
+        spinner.fail(`Download failed: ${repo}`);
         reject(err);
       } else {
         fse.removeSync(path.join(tmpDest, '.git'));
-        spinner.succeed('下载成功');
+        spinner.succeed('Download successful');
         resolve(tmpDest);
       }
     });

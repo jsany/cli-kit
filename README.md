@@ -20,7 +20,7 @@
   </a>
 </p>
 
-> The scaffold demo
+> The scaffold demo for the future
 
 原理：<https://github.com/jsany/cli-theory>
 
@@ -32,7 +32,7 @@
 - [x] eslint、prettier、commitlint
 - [x] local template
 - [x] remote template
-- [x] first use config
+- [x] use config first
 
 ## Prerequisites
 
@@ -42,14 +42,14 @@
 
 when `npm install` in lifecyle of `postinstall` will copy `.clikitrc.json` to `$HOME/.clikitrc.json`, then use it first, you can edit this json file what you wanna
 
-### Field
+### Fields
 
 - githubToken: String - personal github token, default is `''`
 - localTemplates: Object - local template
   - name: String - it must `root/templates` first level subdirectory name
   - message: String - about this template description, it will appear in prompt
 - remoteTemplates: Object - remote template
-  - name: String - it must repository([go detail](https://www.npmjs.com/package/download-git-repo#repository))
+  - name: String - it must repository([go rules detail](https://www.npmjs.com/package/download-git-repo#repository))
   - message: String - about this template description, it will appear in prompt
   - bootstrap: Object - it will assign top default bootstrap
 - bootstrap: Object - it will run after project generate
@@ -65,25 +65,25 @@ when `npm install` in lifecyle of `postinstall` will copy `.clikitrc.json` to `$
   "localTemplates": [
     {
       "name": "template-a",
-      "message": "项目A(template-a)"
+      "message": "Project A(template-a)"
     },
     {
       "name": "template-b",
-      "message": "项目B(template-b)"
+      "message": "Project B(template-b)"
     }
   ],
   "remoteTemplates": [
     {
       "name": "github:jsany/template-main",
-      "message": "主工程(template-main)"
+      "message": "The main project(template-main)"
     },
     {
       "name": "github:jsany/template-secondary",
-      "message": "子工程(template-secondary)"
+      "message": "The secondary project(template-secondary)"
     },
     {
       "name": "github:jsany/template-lerna",
-      "message": "多包工程(template-lerna)",
+      "message": "The mono project(template-lerna)",
       "bootstrap": {
         "npm": ["yarn"]
       }
@@ -98,25 +98,28 @@ when `npm install` in lifecyle of `postinstall` will copy `.clikitrc.json` to `$
 
 ```
 
-## Install
+## Usage
+
+### Install
 
 ```sh
-yarn install
+git clone https://github.com/jsany/cli-kit.git
+cd cli-kit && yarn install
 ```
 
-## Build
+### Build
 
 ```sh
 yarn build
 ```
 
-## Link
+### Link
 
 ```sh
 yarn link
 ```
 
-## Usage
+It already publish to npm, so you can `npm i -g @jsany/cli-kit` instead of above step, of course it is suggested as template or demo, base it diy youself
 
 ```sh
 cli-kit init

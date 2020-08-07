@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import message from '@/utils/message';
+import { warning, error } from '@/utils/message';
 import checkDir from '@/utils/checkDir';
 import getRootDir from '@/utils/getRootDir';
 import {
@@ -32,7 +32,7 @@ export default async (projectName: string | undefined): Promise<any> => {
       // 下载远程仓库模版，返回临时目录
       target = await download(answersTemplate.templateRepo);
     } else {
-      message.warning('请选择本地/远程模板');
+      warning('Please select local/remote templates');
       process.exit(1);
     }
 
@@ -44,8 +44,8 @@ export default async (projectName: string | undefined): Promise<any> => {
 
     // 初始化
     await bootstrap(answersLocalOrRemote.template, answersTemplate.templateRepo);
-  } catch (error) {
-    message.error(error);
+  } catch (err) {
+    error(err);
     process.exit(1);
   }
 };

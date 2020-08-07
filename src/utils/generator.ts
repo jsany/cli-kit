@@ -47,9 +47,9 @@ export default async (target: string, toPath: string, answersInfo: any) => {
       .build((err) => {
         if (!err) {
           resovle();
-          success('模版渲染成功');
+          success('Template rendering successful');
         } else {
-          error(`模版渲染异常：${err}`);
+          error(`Template rendering abnormal: ${err}`);
           reject(err);
           process.exit(1);
         }
