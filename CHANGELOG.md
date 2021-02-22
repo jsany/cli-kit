@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/jsany/cli-kit/compare/v1.1.3...v1.1.4) (2021-02-22)
+
+
+### Bug Fixes
+
+* 🐛 Give up using consolidate to fix([#1](https://github.com/jsany/cli-kit/issues/1)) ([3514ab4](https://github.com/jsany/cli-kit/commit/3514ab48c0038d09e9bf4cab1c19a26d5f0dff0f))
+
 ### [1.1.3](https://github.com/jsany/cli-kit/compare/v1.1.2...v1.1.3) (2021-02-22)
 
 ### [1.1.2](https://github.com/jsany/cli-kit/compare/v1.1.1...v1.1.2) (2020-09-11)

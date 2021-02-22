@@ -1,14 +1,8 @@
 {
   "name": "@jsany/cli-kit",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "The typescript scaffold demo for the future",
-  "keywords": [
-    "cli",
-    "kit",
-    "scaffold",
-    "future",
-    "typescript"
-  ],
+  "keywords": ["cli", "kit", "scaffold", "future", "typescript"],
   "homepage": "https://github.com/jsany/cli-kit#readme",
   "bugs": {
     "url": "https://github.com/jsany/cli-kit/issues"
@@ -24,14 +18,7 @@
   "bin": {
     "cli-kit": "bin/index.js"
   },
-  "files": [
-    "lib",
-    "bin",
-    "scripts",
-    "templates",
-    ".clikitrc.json",
-    "typings.d.ts"
-  ],
+  "files": ["lib", "bin", "scripts", "templates", ".clikitrc.json", "typings.d.ts"],
   "scripts": {
     "compile": "babel src --out-dir lib --extensions \".ts\"",
     "check:ts": "tsc --noEmit --pretty",
@@ -47,12 +34,8 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,md,json}": [
-      "prettier --write"
-    ],
-    "package.json": [
-      "sort-package-json"
-    ]
+    "**/*.{js,ts,md,json}": ["prettier --write"],
+    "package.json": ["sort-package-json"]
   },
   "dependencies": {
     "cac": "^6.5.10",
