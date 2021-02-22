@@ -1,8 +1,6 @@
 import Metalsmith from 'metalsmith';
-import consolidate from 'consolidate';
+import handlebars from 'handlebars';
 import { success, error } from '@/utils/message';
-
-const { render } = consolidate.handlebars;
 
 export default async (target: string, toPath: string, answersInfo: any) => {
   const MetalFilterProjectInfo: Metalsmith.Plugin = async (files, metal, done) => {
@@ -23,7 +21,7 @@ export default async (target: string, toPath: string, answersInfo: any) => {
           // 目前仅仅后缀为 .hbs 的是模版
 
           // 用数据渲染模板
-          content = await render(content, metal.metadata());
+          content = handlebars.compile(content)(metal.metadata());
           // 渲染好的结果替换即可
           file.contents = Buffer.from(content);
           const fileNameNo = fileName.slice(0, -4);
