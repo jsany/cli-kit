@@ -119,7 +119,7 @@ yarn build
 yarn link
 ```
 
-It already publish to npm, so you can `npm i -g @jsany/cli-kit` instead of above step, of course it is suggested as template or demo, base it diy youself
+It already publish to npm, so you can `npm i -g @jsany/cli-kit` instead of above step, of course it is suggested as template or demo, base it diy yourself
 
 ```sh
 cli-kit init

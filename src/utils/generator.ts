@@ -1,8 +1,8 @@
 import Metalsmith from 'metalsmith';
-import { handlebars } from 'consolidate';
+import consolidate from 'consolidate';
 import { success, error } from '@/utils/message';
 
-const { render } = handlebars;
+const { render } = consolidate.handlebars;
 
 export default async (target: string, toPath: string, answersInfo: any) => {
   const MetalFilterProjectInfo: Metalsmith.Plugin = async (files, metal, done) => {
@@ -38,7 +38,7 @@ export default async (target: string, toPath: string, answersInfo: any) => {
     }
   };
   // console.info(target,toPath)
-  await new Promise((resovle, reject) => {
+  await new Promise<void>((resolve, reject) => {
     Metalsmith(__dirname)
       .source(target)
       .destination(toPath)
@@ -46,7 +46,7 @@ export default async (target: string, toPath: string, answersInfo: any) => {
       .use(MetalFilterRender)
       .build((err) => {
         if (!err) {
-          resovle();
+          resolve();
           success('Template rendering successful');
         } else {
           error(`Template rendering abnormal: ${err}`);
