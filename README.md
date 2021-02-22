@@ -110,7 +110,7 @@ cd cli-kit && yarn install
 ### Build
 
 ```sh
-yarn build
+yarn compile
 ```
 
 ### Link
