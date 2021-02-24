@@ -1,6 +1,6 @@
 {
   "name": "@jsany/cli-kit",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "The typescript scaffold demo for the future",
   "keywords": ["cli", "kit", "scaffold", "future", "typescript"],
   "homepage": "https://github.com/jsany/cli-kit#readme",
