@@ -1,22 +1,25 @@
 <h1 align="center">Welcome to cli-kit 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
-    <img alt="npm version" src="https://img.shields.io/npm/v/@jsany/cli-kit/latest?logo=npm&style=flat-square" />
+    <img alt="npm version" src="https://img.shields.io/npm/v/@jsany/cli-kit/latest?logo=npm&style=flat" />
   </a>
   <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
-    <img alt="npm miniziped size" src="https://img.shields.io/bundlephobia/minzip/@jsany/cli-kit/latest?logo=npm&style=flat-square" />
+    <img alt="publish size" src="https://badgen.net/packagephobia/publish/@jsany/cli-kit" />
   </a>
   <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
-    <img alt="node version" src="https://img.shields.io/node/v/@jsany/cli-kit?color=blue&style=flat-square" />
+    <img alt="install size" src="https://badgen.net/packagephobia/install/@jsany/cli-kit" />
+  </a>
+  <a href="https://www.npmjs.com/package/@jsany/cli-kit" target="_blank">
+    <img alt="node version" src="https://img.shields.io/node/v/@jsany/cli-kit?color=blue&style=flat" />
   </a>
   <a href="https://github.com/jsany/cli-kit#readme" target="_blank">
-    <img alt="documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=flat-square" />
+    <img alt="documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=flat" />
   </a>
   <a href="https://github.com/jsany/cli-kit/graphs/commit-activity" target="_blank">
-    <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat-square" />
+    <img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=flat" />
   </a>
   <a href="https://github.com/jsany/cli-kit/blob/main/LICENSE" target="_blank">
-    <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" />
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat" />
   </a>
 </p>
 
