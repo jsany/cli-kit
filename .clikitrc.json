@@ -29,7 +29,7 @@
   ],
   "bootstrap": {
     "npm": ["npm install"],
-    "git": ["git init"],
+    "git": ["git init -b main"],
     "open": ["code ."]
   }
 }
