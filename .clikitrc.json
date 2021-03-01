@@ -12,15 +12,15 @@
   ],
   "remoteTemplates": [
     {
-      "name": "github:jsany/template-main",
+      "name": "github:jsany/template-main#main",
       "message": "The main project(template-main)"
     },
     {
-      "name": "github:jsany/template-secondary",
+      "name": "github:jsany/template-secondary#main",
       "message": "The secondary project(template-secondary)"
     },
     {
-      "name": "github:jsany/template-lerna",
+      "name": "github:jsany/template-lerna#main",
       "message": "The mono project(template-lerna)",
       "bootstrap": {
         "npm": ["yarn"]

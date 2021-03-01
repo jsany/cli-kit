@@ -77,15 +77,15 @@ when `npm install` in lifecyle of `postinstall` will copy `.clikitrc.json` to `$
   ],
   "remoteTemplates": [
     {
-      "name": "github:jsany/template-main",
+      "name": "github:jsany/template-main#main",
       "message": "The main project(template-main)"
     },
     {
-      "name": "github:jsany/template-secondary",
+      "name": "github:jsany/template-secondary#main",
       "message": "The secondary project(template-secondary)"
     },
     {
-      "name": "github:jsany/template-lerna",
+      "name": "github:jsany/template-lerna#main",
       "message": "The mono project(template-lerna)",
       "bootstrap": {
         "npm": ["yarn"]
@@ -94,7 +94,7 @@ when `npm install` in lifecyle of `postinstall` will copy `.clikitrc.json` to `$
   ],
   "bootstrap": {
     "npm": ["npm install"],
-    "git": ["git init"],
+    "git": ["git init -b main"],
     "open": ["code ."]
   }
 }
